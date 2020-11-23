@@ -1,0 +1,33 @@
+ALGORITHM pb1sol1
+VAR
+    sum:INTEGER:=0;
+    i,j,flag:INTEGER;
+    arr1 : ARRAY_OF INTEGER;
+    arr2 : ARRAY_OF INTEGER;
+BEGIN
+    write('enter elements of array1');
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        read(arr1[i]);
+    END_FOR
+    write('enter elements of array2');
+    FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+        read(arr2[j]);
+    END_FOR
+
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        flag:=0;
+        FOR j FROM 0 TO arr2.length-1 STEP 1 DO
+            IF(arr1[i] := arr2[j]) THEN
+                remove arr2[j];
+                j:=--;
+                flag:=1;
+            END_IF
+        END_FOR
+        IF (flag:=0) THEN
+            sum:=sum+arr1[i];
+        END_IF
+    END_FOR
+    sum:=sum+arr2[j];
+    write("the sum of all distinct elements:",sum);
+
+END
